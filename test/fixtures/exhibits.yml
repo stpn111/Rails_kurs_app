@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  sdescription: MyText
+  insurance: 1
+  century: 1
+  height: 1
+  width: 1
+  length: 1
+  tempcontrol: false
+  himiditycontrol: false
+  peopleprotect: false
+  collection_id: 
+
+two:
+  name: MyText
+  sdescription: MyText
+  insurance: 1
+  century: 1
+  height: 1
+  width: 1
+  length: 1
+  tempcontrol: false
+  himiditycontrol: false
+  peopleprotect: false
+  collection_id: 
