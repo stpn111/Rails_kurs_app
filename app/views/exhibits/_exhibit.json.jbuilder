@@ -1,0 +1,2 @@
+json.extract! exhibit, :id, :name, :sdescription, :insurance, :century, :height, :width, :length, :tempcontrol, :himiditycontrol, :peopleprotect, :collection_id, :created_at, :updated_at
+json.url exhibit_url(exhibit, format: :json)

@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @exhibit.name
+%p
+  %b Sdescription:
+  = @exhibit.sdescription
+%p
+  %b Insurance:
+  = @exhibit.insurance
+%p
+  %b Century:
+  = @exhibit.century
+%p
+  %b Height:
+  = @exhibit.height
+%p
+  %b Width:
+  = @exhibit.width
+%p
+  %b Length:
+  = @exhibit.length
+%p
+  %b Tempcontrol:
+  = @exhibit.tempcontrol
+%p
+  %b Himiditycontrol:
+  = @exhibit.himiditycontrol
+%p
+  %b Peopleprotect:
+  = @exhibit.peopleprotect
+%p
+  %b Collection:
+  = @exhibit.collection_id
+
+= link_to 'Edit', edit_exhibit_path(@exhibit)
+\|
+= link_to 'Back', exhibits_path

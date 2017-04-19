@@ -1,0 +1,43 @@
+= form_for @exhibit do |f|
+  - if @exhibit.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@exhibit.errors.count, "error")} prohibited this exhibit from being saved:"
+      %ul
+        - @exhibit.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_area :name
+  .field
+    = f.label :sdescription
+    = f.text_area :sdescription
+  .field
+    = f.label :insurance
+    = f.number_field :insurance
+  .field
+    = f.label :century
+    = f.number_field :century
+  .field
+    = f.label :height
+    = f.number_field :height
+  .field
+    = f.label :width
+    = f.number_field :width
+  .field
+    = f.label :length
+    = f.number_field :length
+  .field
+    = f.label :tempcontrol
+    = f.check_box :tempcontrol
+  .field
+    = f.label :himiditycontrol
+    = f.check_box :himiditycontrol
+  .field
+    = f.label :peopleprotect
+    = f.check_box :peopleprotect
+  .field
+    = f.label :collection_id
+    = f.text_field :collection_id
+  .actions
+    = f.submit 'Save'
