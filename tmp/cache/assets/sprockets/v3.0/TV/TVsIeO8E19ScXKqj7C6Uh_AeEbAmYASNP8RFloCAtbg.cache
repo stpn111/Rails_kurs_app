@@ -1,0 +1,25 @@
+I"(function() {
+  var ready, togglef;
+
+  ready = function() {
+    return $("#sidebar-toggle").on('click', function() {
+      var id;
+      id = $(this).children('.sidebar-toggle').attr('href');
+      $(id).toggleClass('toggled');
+      return false;
+    });
+  };
+
+  togglef = function() {
+    return $(".with-subitems").on('click', function() {
+      $(this).parent().children(".subitems").toggle(300);
+      return false;
+    });
+  };
+
+  $(document).on('turbolinks:load', ready);
+
+  $(document).on('turbolinks:load', togglef);
+
+}).call(this);
+:ET

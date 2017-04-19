@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  colname: MyText
+  shdescription: MyText
+  begindate: 2017-04-17
+  enddate: 2017-04-17
+
+two:
+  colname: MyText
+  shdescription: MyText
+  begindate: 2017-04-17
+  enddate: 2017-04-17
