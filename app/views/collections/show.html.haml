@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Colname:
+  = @collection.colname
+%p
+  %b Shdescription:
+  = @collection.shdescription
+%p
+  %b Begindate:
+  = @collection.begindate
+%p
+  %b Enddate:
+  = @collection.enddate
+
+= link_to 'Edit', edit_collection_path(@collection)
+\|
+= link_to 'Back', collections_path

@@ -1,0 +1,30 @@
+%h1 Коллекции
+
+%table
+  %thead
+    %tr
+      %th Название коллекции&nbsp&nbsp
+      %th Описание&nbsp&nbsp
+      %th Дата начала показаe&nbsp&nbsp
+      %th Дата окончания&nbsp&nbsp
+      %th
+      %th
+      %th
+
+  %tbody
+    - @collections.each do |collection|
+      %tr
+        %td= collection.colname
+        %td= collection.shdescription
+        %td= collection.begindate
+        %td= collection.enddate
+        %th &nbsp&nbsp
+        %td= link_to 'Показать', collection
+        %th &nbsp&nbsp
+        %td= link_to 'Редактировать', edit_collection_path(collection)
+        %th &nbsp&nbsp
+        %td= link_to 'Удалить', collection, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Collection', new_collection_path

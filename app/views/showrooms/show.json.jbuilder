@@ -1,0 +1,1 @@
+json.partial! "showrooms/showroom", showroom: @showroom

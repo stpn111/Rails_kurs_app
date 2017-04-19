@@ -1,0 +1,41 @@
+%h1 Список экспонатов
+
+%table
+  %thead
+    %tr
+      %th Name&nbsp&nbsp
+      %th Sdescription&nbsp&nbsp
+      %th Insurance&nbsp&nbsp
+      %th Century&nbsp&nbsp
+      %th Height&nbsp&nbsp
+      %th Width&nbsp&nbsp
+      %th Length&nbsp&nbsp
+      %th Tempcontrol&nbsp&nbsp
+      %th Himiditycontrol&nbsp&nbsp
+      %th Peopleprotect&nbsp&nbsp
+      %th Collection&nbsp&nbsp
+      %th
+      %th
+      %th
+
+  %tbody
+    - @exhibits.each do |exhibit|
+      %tr
+        %td= exhibit.name
+        %td= exhibit.sdescription
+        %td= exhibit.insurance
+        %td= exhibit.century
+        %td= exhibit.height
+        %td= exhibit.width
+        %td= exhibit.length
+        %td= exhibit.tempcontrol
+        %td= exhibit.himiditycontrol
+        %td= exhibit.peopleprotect
+        %td= exhibit.collection_id
+        %td= link_to 'Show', exhibit
+        %td= link_to 'Edit', edit_exhibit_path(exhibit)
+        %td= link_to 'Destroy', exhibit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Exhibit', new_exhibit_path

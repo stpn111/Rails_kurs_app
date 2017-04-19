@@ -1,0 +1,21 @@
+%h1 Список выставочных залов
+
+%table
+  %thead
+    %tr
+      %th Название выставочного зала
+      %th
+      %th
+      %th
+
+  %tbody
+    - @showrooms.each do |showroom|
+      %tr
+        %td= showroom.roomname
+        %td= link_to 'Show', showroom
+        %td= link_to 'Edit', edit_showroom_path(showroom)
+        %td= link_to 'Destroy', showroom, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Showroom', new_showroom_path
