@@ -1,2 +1,2 @@
-# base_app_m
-Базовый каркас проекта
+#Rails_kurs_app
+#Rails_kurs_app
