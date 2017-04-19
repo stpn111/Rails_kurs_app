@@ -3,6 +3,6 @@ loaderf = ->
     $('#loader').modal('show')
     true
   true
-$(document).ready loaderf
-$(document).on 'page:load', loaderf
- 
+# $(document).ready loaderf
+$(document).on 'turbolinks:load', loaderf
+

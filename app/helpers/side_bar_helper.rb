@@ -24,6 +24,22 @@ module SideBarHelper
        :class => 'long'},
     ]} 
     result << {
+      :name => 'Данные по музею',
+      :icon => 'picture-o',
+      :children => [
+      {:name => 'Коллекции',
+       :controller => :collections, :action => :index,
+       :icon => 'picture-o',
+       :class => 'long'},
+      {:name => 'Экспонаты',
+       :controller => :exhibits, :action => :index,
+       :icon => 'trophy'},
+      {:name => 'Выставочные залы',
+       :controller => :showrooms, :action => :index,
+       :icon => 'building',
+       :class => 'long'},
+    ]} 
+    result << {
       :name => 'Заголовок ссылок',
       :icon => 'search-plus',
       :children => [
@@ -40,7 +56,7 @@ module SideBarHelper
   
   def is_open?(ctr, act)
     case ctr.to_s
-    when 'users', 'roles'
+    when 'users', 'roles', 'exhibits', 'collections', 'showrooms'
       ctr.to_s == controller_name.to_s  
     else
       false
