@@ -18,5 +18,8 @@
   .field
     = f.label :enddate
     = f.date_select :enddate
+  .field
+    = label_tag '12345', :roomname
+    = select_tag '12345', options_for_select(Showroom.all.map{|x| [x.roomname]})
   .actions
     = f.submit 'Save'

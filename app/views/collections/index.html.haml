@@ -5,11 +5,11 @@
     %tr
       %th Название коллекции&nbsp&nbsp
       %th Описание&nbsp&nbsp
-      %th Дата начала показаe&nbsp&nbsp
+      %th Дата начала показа&nbsp&nbsp
       %th Дата окончания&nbsp&nbsp
-      %th
-      %th
-      %th
+      %th.p50
+      %th.p50
+      %th.p50
 
   %tbody
     - @collections.each do |collection|
@@ -18,13 +18,16 @@
         %td= collection.shdescription
         %td= collection.begindate
         %td= collection.enddate
-        %th &nbsp&nbsp
-        %td= link_to 'Показать', collection
-        %th &nbsp&nbsp
-        %td= link_to 'Редактировать', edit_collection_path(collection)
-        %th &nbsp&nbsp
-        %td= link_to 'Удалить', collection, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Collection', new_collection_path
+        %td
+          = link_to collection, class: 'btn btn-success' do
+            = fa_icon :eye
+        %td
+          = link_to edit_collection_path(collection), class: 'btn btn-info' do
+            = fa_icon :edit
+        %td
+          = link_to collection, :method => :delete, :data => { :confirm => t('helpers.sure') }, class: 'btn btn-danger' do
+            = fa_icon :times
+%table.table.table-hover.table-striped.center
+  %caption
+    .pull
+      = link_to t('app.collections.new-button'), new_collection_path, class: 'btn btn-primary'

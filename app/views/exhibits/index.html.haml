@@ -3,39 +3,45 @@
 %table
   %thead
     %tr
-      %th Name&nbsp&nbsp
-      %th Sdescription&nbsp&nbsp
-      %th Insurance&nbsp&nbsp
-      %th Century&nbsp&nbsp
-      %th Height&nbsp&nbsp
-      %th Width&nbsp&nbsp
-      %th Length&nbsp&nbsp
-      %th Tempcontrol&nbsp&nbsp
-      %th Himiditycontrol&nbsp&nbsp
-      %th Peopleprotect&nbsp&nbsp
-      %th Collection&nbsp&nbsp
-      %th
-      %th
-      %th
+      %th Название&nbsp&nbsp
+      %th Описание&nbsp&nbsp
+      %th Страх. стоимость&nbsp&nbsp
+      %th Век&nbsp&nbsp
+      %th Высота&nbsp&nbsp
+      %th Ширина&nbsp&nbsp
+      %th Длина&nbsp&nbsp
+      %th Темп. контроль&nbsp&nbsp
+      %th Контроль влажности&nbsp&nbsp
+      %th Защита от людей&nbsp&nbsp
+      %th Коллекция&nbsp&nbsp
+      %th.p50
+      %th.p50
+      %th.p50
 
   %tbody
     - @exhibits.each do |exhibit|
       %tr
-        %td= exhibit.name
-        %td= exhibit.sdescription
-        %td= exhibit.insurance
-        %td= exhibit.century
-        %td= exhibit.height
-        %td= exhibit.width
-        %td= exhibit.length
-        %td= exhibit.tempcontrol
-        %td= exhibit.himiditycontrol
-        %td= exhibit.peopleprotect
-        %td= exhibit.collection_id
-        %td= link_to 'Show', exhibit
-        %td= link_to 'Edit', edit_exhibit_path(exhibit)
-        %td= link_to 'Destroy', exhibit, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Exhibit', new_exhibit_path
+        %td{:style=>'text-align:center'}= exhibit.name
+        %td{:style=>'text-align:center'}= exhibit.sdescription
+        %td{:style=>'text-align:center'}= exhibit.insurance
+        %td{:style=>'text-align:center'}= exhibit.century
+        %td{:style=>'text-align:center'}= exhibit.height
+        %td{:style=>'text-align:center'}= exhibit.width
+        %td{:style=>'text-align:center'}= exhibit.length
+        %td{:style=>'text-align:center'}= exhibit.tempcontrol
+        %td{:style=>'text-align:center'}= exhibit.himiditycontrol
+        %td{:style=>'text-align:center'}= exhibit.peopleprotect
+        %td{:style=>'text-align:center'}= exhibit.collection_id
+        %td
+          = link_to exhibit, class: 'btn btn-success' do
+            = fa_icon :eye
+        %td
+          = link_to edit_exhibit_path(exhibit), class: 'btn btn-info' do
+            = fa_icon :edit
+        %td
+          = link_to exhibit, :method => :delete, :data => { :confirm => t('helpers.sure') }, class: 'btn btn-danger' do
+            = fa_icon :times
+%table.table.table-hover.table-striped.center
+  %caption
+    .pull
+      = link_to t('app.exhibits.new-button'), new_exhibit_path, class: 'btn btn-primary'
