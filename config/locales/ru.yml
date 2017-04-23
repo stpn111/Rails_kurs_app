@@ -14,6 +14,13 @@ ru:
       new-button: Новая роль
       edit: Редактирование роли
       new: Создание роли
+    collections:
+      new-button: Новая коллекция
+    exhibits:
+      new-button: Новый экспонат
+    showrooms:
+      new-button: Новый зал
+      
   helpers:
     submit:
       create: Сохранить
