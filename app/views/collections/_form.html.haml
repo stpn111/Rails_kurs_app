@@ -19,7 +19,7 @@
     = f.label :enddate
     = f.date_select :enddate
   .field
-    = label_tag '12345', :roomname
-    = select_tag '12345', options_for_select(Showroom.all.map{|x| [x.roomname]})
+    = f.label :showrooms
+    = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true}
   .actions
     = f.submit 'Save'

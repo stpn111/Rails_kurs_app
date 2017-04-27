@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415153255) do
+ActiveRecord::Schema.define(version: 20170427123739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170415153255) do
     t.integer "showroom_id",   null: false
   end
 
-  add_index "collections_showrooms", ["collection_id", "showroom_id"], name: "index_collections_showrooms_on_collection_id_and_showroom_id", using: :btree
+  add_index "collections_showrooms", ["collection_id", "showroom_id"], name: "index_collections_showrooms_on_collection_id_and_showroom_id", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false

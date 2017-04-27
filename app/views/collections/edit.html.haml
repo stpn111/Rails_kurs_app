@@ -1,7 +1,9 @@
-%h1 Editing collection
+%h1 Редактирование коллекции
 
 = render 'form'
+= link_to 'Назад', collections_path
 
-= link_to 'Show', @collection
 \|
-= link_to 'Back', collections_path
+= link_to 'Показать', @collection
+
+

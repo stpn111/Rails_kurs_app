@@ -20,6 +20,7 @@ ru:
       new-button: Новый экспонат
     showrooms:
       new-button: Новый зал
+      roomname: Название зала
       
   helpers:
     submit:
@@ -52,6 +53,26 @@ ru:
         name: Обозначение
         info: Краткое название
         full_info: Описание
+      collection:
+        colname: Название коллекции
+        shdescription: Краткое описание
+        begindate: Дата начала показа
+        enddate: Дата окончания показа
+        showrooms: Выставочные залы
+      exhibit:
+        name: Название
+        sdescription: Описание
+        insurance: Страховая стоимость
+        century: Век
+        height: Высота
+        width: Ширина
+        length: Длина
+        tempcontrol: Требуется температурный режим
+        himiditycontrol: Требуется соблюдать влажность
+        peopleprotect: Защищать от людей
+        collection_id: Коллекция 
+      showroom:
+        roomname: Название зала
     errors:
       models:
         person:

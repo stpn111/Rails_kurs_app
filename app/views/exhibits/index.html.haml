@@ -1,19 +1,19 @@
 %h1 Список экспонатов
 
-%table
+%table.table.table-hover.table-striped.center
   %thead
     %tr
-      %th Название&nbsp&nbsp
-      %th Описание&nbsp&nbsp
-      %th Страх. стоимость&nbsp&nbsp
-      %th Век&nbsp&nbsp
-      %th Высота&nbsp&nbsp
-      %th Ширина&nbsp&nbsp
-      %th Длина&nbsp&nbsp
-      %th Темп. контроль&nbsp&nbsp
-      %th Контроль влажности&nbsp&nbsp
-      %th Защита от людей&nbsp&nbsp
-      %th Коллекция&nbsp&nbsp
+      %th Название
+      %th Описание
+      %th Страх. стоимость
+      %th Век
+      %th Высота
+      %th Ширина
+      %th Длина
+      %th Темп. контроль
+      %th Контроль влажности
+      %th Защита от людей
+      %th Коллекция
       %th.p50
       %th.p50
       %th.p50
@@ -21,17 +21,17 @@
   %tbody
     - @exhibits.each do |exhibit|
       %tr
-        %td{:style=>'text-align:center'}= exhibit.name
-        %td{:style=>'text-align:center'}= exhibit.sdescription
-        %td{:style=>'text-align:center'}= exhibit.insurance
-        %td{:style=>'text-align:center'}= exhibit.century
-        %td{:style=>'text-align:center'}= exhibit.height
-        %td{:style=>'text-align:center'}= exhibit.width
-        %td{:style=>'text-align:center'}= exhibit.length
-        %td{:style=>'text-align:center'}= exhibit.tempcontrol
-        %td{:style=>'text-align:center'}= exhibit.himiditycontrol
-        %td{:style=>'text-align:center'}= exhibit.peopleprotect
-        %td{:style=>'text-align:center'}= exhibit.collection_id
+        %td= exhibit.name
+        %td= exhibit.sdescription
+        %td= exhibit.insurance
+        %td= exhibit.century
+        %td= exhibit.height
+        %td= exhibit.width
+        %td= exhibit.length
+        %td= exhibit.tempcontrol
+        %td= exhibit.himiditycontrol
+        %td= exhibit.peopleprotect
+        %td= exhibit.collection_id
         %td
           = link_to exhibit, class: 'btn btn-success' do
             = fa_icon :eye

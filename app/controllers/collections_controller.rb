@@ -5,6 +5,7 @@ class CollectionsController < ApplicationController
   # GET /collections.json
   def index
     @collections = Collection.all
+    @showrooms = Showroom.all
   end
 
   # GET /collections/1
@@ -15,19 +16,23 @@ class CollectionsController < ApplicationController
   # GET /collections/new
   def new
     @collection = Collection.new
+    @showroom = Showroom.all
   end
 
   # GET /collections/1/edit
   def edit
+	@showroom = Showroom.all
   end
 
   # POST /collections
   # POST /collections.json
   def create
     @collection = Collection.new(collection_params)
-
+	@showrooms = []
+	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.save
+		@showrooms.each{|a| a.collections << @collection}
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
         format.json { render :show, status: :created, location: @collection }
       else
@@ -40,8 +45,11 @@ class CollectionsController < ApplicationController
   # PATCH/PUT /collections/1
   # PATCH/PUT /collections/1.json
   def update
+	@showrooms = []
+	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.update(collection_params)
+		@showrooms.each{|a| a.collections << @collection}.exists?
         format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
         format.json { render :show, status: :ok, location: @collection }
       else
