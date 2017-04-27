@@ -14,6 +14,17 @@ ru:
       new-button: Новая роль
       edit: Редактирование роли
       new: Создание роли
+<<<<<<< HEAD
+=======
+    collections:
+      new-button: Новая коллекция
+    exhibits:
+      new-button: Новый экспонат
+    showrooms:
+      new-button: Новый зал
+      roomname: Название зала
+      
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
   helpers:
     submit:
       create: Сохранить
@@ -45,6 +56,29 @@ ru:
         name: Обозначение
         info: Краткое название
         full_info: Описание
+<<<<<<< HEAD
+=======
+      collection:
+        colname: Название коллекции
+        shdescription: Краткое описание
+        begindate: Дата начала показа
+        enddate: Дата окончания показа
+        showrooms: Выставочные залы
+      exhibit:
+        name: Название
+        sdescription: Описание
+        insurance: Страховая стоимость
+        century: Век
+        height: Высота
+        width: Ширина
+        length: Длина
+        tempcontrol: Требуется температурный режим
+        himiditycontrol: Требуется соблюдать влажность
+        peopleprotect: Защищать от людей
+        collection_id: Коллекция 
+      showroom:
+        roomname: Название зала
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
     errors:
       models:
         person:

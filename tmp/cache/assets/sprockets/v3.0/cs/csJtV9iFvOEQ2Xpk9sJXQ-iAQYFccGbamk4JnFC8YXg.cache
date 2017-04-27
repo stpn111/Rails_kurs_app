@@ -1,0 +1,15 @@
+I"e(function() {
+  var loaderf;
+
+  loaderf = function() {
+    $('.long, .longpaginate .page a, .longpaginate .next a, .longpaginate .prev a, .longpaginate .last a, .longpaginate .first a').on('click', function() {
+      $('#loader').modal('show');
+      return true;
+    });
+    return true;
+  };
+
+  $(document).on('turbolinks:load', loaderf);
+
+}).call(this);
+:ET

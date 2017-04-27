@@ -2,7 +2,11 @@ module SideBarHelper
   def side_bar_items(ru)
     result = []
     result << {
+<<<<<<< HEAD
       :name => 'Сслыка без детей',
+=======
+      :name => 'Начальная страница',
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
       :icon => 'list',
       :controller => :welcome, 
       :action => :index
@@ -39,6 +43,7 @@ module SideBarHelper
        :icon => 'building',
        :class => 'long'},
     ]} 
+<<<<<<< HEAD
     result << {
       :name => 'Заголовок ссылок',
       :icon => 'search-plus',
@@ -51,6 +56,8 @@ module SideBarHelper
        :icon => 'search',
        :class => 'long'}
     ]} 
+=======
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
     result
   end
   

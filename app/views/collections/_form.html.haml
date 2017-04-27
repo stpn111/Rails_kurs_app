@@ -18,5 +18,11 @@
   .field
     = f.label :enddate
     = f.date_select :enddate
+<<<<<<< HEAD
+=======
+  .field
+    = f.label :showrooms
+    = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true}
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
   .actions
     = f.submit 'Save'

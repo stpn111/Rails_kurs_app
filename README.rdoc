@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -26,3 +27,14 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+=======
+Для написания приложения используется язык Ruby и фреймворк Ruby on Rails (v. 4.26)
+
+Реализовано:
+1. Все связи и валидации.
+2. Добавлены пункты меню для перехода на просмотр и редактирование информации, о сгенерированных моделях.
+3. Немного приведен в адекватное состояние интерфейс моделей.
+Не реализовано:
+
+Интерфейс пользователя для заполнения связи М-М.
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706

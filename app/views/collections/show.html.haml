@@ -12,7 +12,19 @@
 %p
   %b Enddate:
   = @collection.enddate
+<<<<<<< HEAD
 
 = link_to 'Edit', edit_collection_path(@collection)
 \|
 = link_to 'Back', collections_path
+=======
+%p
+  %b Showroom:
+  = @collection.showrooms.map{ |a| a.roomname }.join(', ')
+
+= link_to 'Назад', collections_path
+\|
+= link_to 'Редактировать', edit_collection_path(@collection)
+
+
+>>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
