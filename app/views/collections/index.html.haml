@@ -3,10 +3,11 @@
 %table.table.table-hover.table-striped.center
   %thead
     %tr
-      %th Название коллекции
-      %th Описание
-      %th Дата начала показа
-      %th Дата окончания
+      %th= Collection.human_attribute_name(:colname)
+      %th= Collection.human_attribute_name(:shdescription)
+      %th= Collection.human_attribute_name(:begindate)
+      %th= Collection.human_attribute_name(:enddate)
+      %th= Collection.human_attribute_name(:showrooms)
       %th.p50
       %th.p50
       %th.p50
@@ -18,6 +19,7 @@
         %td= collection.shdescription
         %td= collection.begindate
         %td= collection.enddate
+        %td= collection.showrooms.map{|x| x.roomname}.join(', ')
         %td
           = link_to collection, class: 'btn btn-success' do
             = fa_icon :eye

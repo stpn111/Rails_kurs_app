@@ -3,17 +3,17 @@
 %table.table.table-hover.table-striped.center
   %thead
     %tr
-      %th Название
-      %th Описание
-      %th Страх. стоимость
-      %th Век
-      %th Высота
-      %th Ширина
-      %th Длина
-      %th Темп. контроль
-      %th Контроль влажности
-      %th Защита от людей
-      %th Коллекция
+      %th= Exhibit.human_attribute_name(:name)
+      %th= Exhibit.human_attribute_name(:sdescription)
+      %th= Exhibit.human_attribute_name(:insurance)
+      %th= Exhibit.human_attribute_name(:century)
+      %th= Exhibit.human_attribute_name(:height)
+      %th= Exhibit.human_attribute_name(:width)
+      %th= Exhibit.human_attribute_name(:length)
+      %th= Exhibit.human_attribute_name(:tempcontrol)
+      %th= Exhibit.human_attribute_name(:himiditycontrol)
+      %th= Exhibit.human_attribute_name(:peopleprotect)
+      %th= Exhibit.human_attribute_name(:collection)
       %th.p50
       %th.p50
       %th.p50
