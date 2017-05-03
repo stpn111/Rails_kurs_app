@@ -1,19 +1,14 @@
-<<<<<<< HEAD
-%h1 Editing collection
+=breadcrumb_tag do
+  %li
+    = link_to 'Список коллекций', collections_path
+  %li
+    = link_to(@collection.colname, @collection)  
+  %li.active
+    = t('headers.collections.edit')  
+
+    
+.page-header
+  %h1= t('headers.collections.edit')
 
 = render 'form'
 
-= link_to 'Show', @collection
-\|
-= link_to 'Back', collections_path
-=======
-%h1 Редактирование коллекции
-
-= render 'form'
-= link_to 'Назад', collections_path
-
-\|
-= link_to 'Показать', @collection
-
-
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706

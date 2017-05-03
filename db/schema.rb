@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170415153255) do
-=======
-ActiveRecord::Schema.define(version: 20170427123739) do
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
+ActiveRecord::Schema.define(version: 20170501085108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,11 +32,7 @@ ActiveRecord::Schema.define(version: 20170427123739) do
     t.integer "showroom_id",   null: false
   end
 
-<<<<<<< HEAD
-  add_index "collections_showrooms", ["collection_id", "showroom_id"], name: "index_collections_showrooms_on_collection_id_and_showroom_id", using: :btree
-=======
   add_index "collections_showrooms", ["collection_id", "showroom_id"], name: "index_collections_showrooms_on_collection_id_and_showroom_id", unique: true, using: :btree
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -128,6 +120,7 @@ ActiveRecord::Schema.define(version: 20170427123739) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
+    t.date     "birthday"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

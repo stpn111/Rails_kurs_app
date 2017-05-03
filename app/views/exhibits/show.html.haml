@@ -1,46 +1,47 @@
+=breadcrumb_tag do
+  %li
+    = link_to 'Список экспонатов', exhibits_path
+  %li.active
+    = t('headers.exhibits.show')  
+.page-header
+  %h1= t('headers.exhibits.show')
+
 %p#notice= notice
 
-%p
-  %b Name:
-  = @exhibit.name
-%p
-  %b Sdescription:
-  = @exhibit.sdescription
-%p
-  %b Insurance:
-  = @exhibit.insurance
-%p
-  %b Century:
-  = @exhibit.century
-%p
-  %b Height:
-  = @exhibit.height
-%p
-  %b Width:
-  = @exhibit.width
-%p
-  %b Length:
-  = @exhibit.length
-%p
-  %b Tempcontrol:
-  = @exhibit.tempcontrol
-%p
-  %b Himiditycontrol:
-  = @exhibit.himiditycontrol
-%p
-  %b Peopleprotect:
-  = @exhibit.peopleprotect
-%p
-  %b Collection:
-  = @exhibit.collection_id
-<<<<<<< HEAD
+%h1= @exhibit.name
 
-= link_to 'Edit', edit_exhibit_path(@exhibit)
-\|
-= link_to 'Back', exhibits_path
-=======
+%dl
+  %dt= Exhibit.human_attribute_name(:sdescription)
+  %dd= @exhibit.sdescription
+  
+  %dt= Exhibit.human_attribute_name(:insurance)
+  %dd= @exhibit.insurance
+
+  %dt= Exhibit.human_attribute_name(:century)
+  %dd= @exhibit.century
+  
+  %dt= Exhibit.human_attribute_name(:height)
+  %dd= @exhibit.height
+  
+  %dt= Exhibit.human_attribute_name(:width)
+  %dd= @exhibit.width
+  
+  %dt= Exhibit.human_attribute_name(:length)
+  %dd= @exhibit.length
+
+  %dt= Exhibit.human_attribute_name(:tempcontrol)
+  %dd= @exhibit.tempcontrol
+
+  %dt= Exhibit.human_attribute_name(:himiditycontrol)
+  %dd= @exhibit.himiditycontrol
+  
+  %dt= Exhibit.human_attribute_name(:peopleprotect)
+  %dd= @exhibit.peopleprotect
+  
+  %dt= Exhibit.human_attribute_name(:collection)
+  %dd= @exhibit.collection.colname
+  
 = link_to 'Назад', exhibits_path
 \|
 = link_to 'Редактировать', edit_exhibit_path(@exhibit)
 
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706

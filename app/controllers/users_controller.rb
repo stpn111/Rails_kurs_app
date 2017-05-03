@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :check_app_auth, only: [:new, :create, :activate]
   skip_before_filter :require_login, :only => [:new, :create, :activate]
+  
+  before_action -> {redirect_if_not_one_of_role_in ["admin"]}, except: [:new, :create, :activate]
 
   # GET /users
   # GET /users.json
@@ -44,7 +46,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'Пользователь изменён.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Пользователь удалён.' }
       format.json { head :no_content }
     end
   end

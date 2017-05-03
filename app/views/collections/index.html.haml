@@ -1,59 +1,42 @@
-%h1 Коллекции
-
-<<<<<<< HEAD
-%table
+=breadcrumb_tag do
+  %li.active
+    Список коллекций
+.page-header
+  %h1= t('headers.collections.index') 
+  
+%table.table.table-hover.table-striped
+  %caption
+    = link_to new_collection_path, class: 'btn btn-success' do
+      = fa_icon :plus
+      = t('buttons.new.collection')   
   %thead
     %tr
-      %th Название коллекции&nbsp&nbsp
-      %th Описание&nbsp&nbsp
-      %th Дата начала показаe&nbsp&nbsp
-      %th Дата окончания&nbsp&nbsp
+      %th= Collection.human_attribute_name(:colname)
+      %th= Collection.human_attribute_name(:shdescription)
+      %th= Collection.human_attribute_name(:begindate)
+      %th= Collection.human_attribute_name(:enddate)
+      %th= Collection.human_attribute_name(:showrooms)
       %th
       %th
       %th
-=======
-%table.table.table-hover.table-striped.center
-  %thead
-    %tr
-      %th Название коллекции
-      %th Описание
-      %th Дата начала показа
-      %th Дата окончания
-      %th.p50
-      %th.p50
-      %th.p50
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
 
   %tbody
     - @collections.each do |collection|
       %tr
-        %td= collection.colname
-        %td= collection.shdescription
-        %td= collection.begindate
-        %td= collection.enddate
-<<<<<<< HEAD
-        %th &nbsp&nbsp
-        %td= link_to 'Показать', collection
-        %th &nbsp&nbsp
-        %td= link_to 'Редактировать', edit_collection_path(collection)
-        %th &nbsp&nbsp
-        %td= link_to 'Удалить', collection, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Collection', new_collection_path
-=======
-        %td
-          = link_to collection, class: 'btn btn-success' do
+        %td.center= collection.colname
+        %td.center= collection.shdescription
+        %td.center= collection.begindate
+        %td.center= collection.enddate
+        %td.center= collection.showrooms.map{|x| x.roomname}.join(', ')
+        %td.right
+          = link_to collection, class: 'btn btn-warning' do
             = fa_icon :eye
-        %td
+            = t('buttons.show')
           = link_to edit_collection_path(collection), class: 'btn btn-info' do
             = fa_icon :edit
-        %td
-          = link_to collection, :method => :delete, :data => { :confirm => t('helpers.sure') }, class: 'btn btn-danger' do
+            = t('buttons.edit')
+          = link_to collection, :method => :delete, 
+          :data => { :confirm => t('buttons.confirm.collection') }, 
+          class: 'btn btn-danger' do
             = fa_icon :times
-%table.table.table-hover.table-striped.center
-  %caption
-    .pull
-      = link_to t('app.collections.new-button'), new_collection_path, class: 'btn btn-primary'
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
+            = t('buttons.destroy')

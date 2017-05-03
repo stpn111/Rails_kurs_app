@@ -10,9 +10,6 @@ if (u2 = User.find_by_email('user@localhost')).nil?
 end
 r1, r2 = Role.create_main_roles
 ru1 = RoleUser.create(role: r1, user: u1)
-<<<<<<< HEAD
-ru2 = RoleUser.create(role: r2, user: u2)
-=======
 ru2 = RoleUser.create(role: r2, user: u2)
 Collection.create(colname: 'Статуэтки', shdescription: 'Описание для статуэток', begindate: DateTime.parse("05/04/2017", "%m/%d/%Y %H:%M"), enddate: DateTime.parse("01/06/2017", "%m/%d/%Y %H:%M"))
 Collection.create(colname: 'Медали', shdescription: 'Описание для древних медалей', begindate: DateTime.parse("25/04/2017", "%m/%d/%Y %H:%M"), enddate: DateTime.parse("16/06/2017", "%m/%d/%Y %H:%M"))
@@ -24,4 +21,3 @@ Exhibit.create(name: "Медаль командующего", sdescription: "М�
 Collection.first.showrooms << Showroom.first
 Collection.first.showrooms << Showroom.second
 Collection.second.showrooms << Showroom.first
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706

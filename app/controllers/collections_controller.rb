@@ -5,10 +5,7 @@ class CollectionsController < ApplicationController
   # GET /collections.json
   def index
     @collections = Collection.all
-<<<<<<< HEAD
-=======
     @showrooms = Showroom.all
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
   end
 
   # GET /collections/1
@@ -19,35 +16,23 @@ class CollectionsController < ApplicationController
   # GET /collections/new
   def new
     @collection = Collection.new
-<<<<<<< HEAD
-=======
     @showroom = Showroom.all
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
   end
 
   # GET /collections/1/edit
   def edit
-<<<<<<< HEAD
-=======
 	@showroom = Showroom.all
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
   end
 
   # POST /collections
   # POST /collections.json
   def create
     @collection = Collection.new(collection_params)
-<<<<<<< HEAD
-
-    respond_to do |format|
-      if @collection.save
-=======
 	@showrooms = []
 	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.save
 		@showrooms.each{|a| a.collections << @collection}
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
         format.json { render :show, status: :created, location: @collection }
       else
@@ -60,16 +45,11 @@ class CollectionsController < ApplicationController
   # PATCH/PUT /collections/1
   # PATCH/PUT /collections/1.json
   def update
-<<<<<<< HEAD
-    respond_to do |format|
-      if @collection.update(collection_params)
-=======
 	@showrooms = []
 	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.update(collection_params)
-		@showrooms.each{|a| a.collections << @collection}.exists?
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
+		@showrooms.each{|a| a.collections << @collection if !(a.collections.include?(@collection))}
         format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
         format.json { render :show, status: :ok, location: @collection }
       else

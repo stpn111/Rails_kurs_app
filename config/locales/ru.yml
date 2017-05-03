@@ -4,34 +4,47 @@ ru:
     company:
       short_name: МПУ
       department: Кафедра
-    users:
-      index: Список пользователей
-      new-button: Новый пользователь 
-      edit: Редактирование пользователя
-      new: Создание пользователя
-    roles:
-      index: Список возможных ролей пользователей
-      new-button: Новая роль
-      edit: Редактирование роли
-      new: Создание роли
-<<<<<<< HEAD
-=======
-    collections:
-      new-button: Новая коллекция
-    exhibits:
-      new-button: Новый экспонат
-    showrooms:
-      new-button: Новый зал
-      roomname: Название зала
-      
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
   helpers:
     submit:
       create: Сохранить
       submit: Сохранить
       update: Сохранить
-    sure: Действительно удалить?      
-  
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+      collection: Действительно удалить коллекцию?
+      exhibit: Действительно удалить экспонат?
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+      collection: Новая коллекция
+      exhibit: Новый экспонат
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+    collections:
+      new: Новая коллекция
+      index: Список коллекций
+      edit: Редактирование коллекции
+      show: Просмотр информации о коллекции
+    exhibits:
+      new: Новый экспонат
+      index: Список экспонатов
+      edit: Редактирование экспоната
+      show: Просмотр информации об экспонате
+    showrooms:
+      new-button: Новый зал
+      roomname: Название зала       
   views:
     pagination:
       first: ⇤
@@ -45,6 +58,7 @@ ru:
     attributes:
       user:
         email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
         password: Пароль
         password_confirmation: Подтверждение пароля
         reset_password_email_sent_at: Дата отправления письма для смены пароля
@@ -56,8 +70,6 @@ ru:
         name: Обозначение
         info: Краткое название
         full_info: Описание
-<<<<<<< HEAD
-=======
       collection:
         colname: Название коллекции
         shdescription: Краткое описание
@@ -75,14 +87,6 @@ ru:
         tempcontrol: Требуется температурный режим
         himiditycontrol: Требуется соблюдать влажность
         peopleprotect: Защищать от людей
-        collection_id: Коллекция 
+        collection: Коллекция
       showroom:
-        roomname: Название зала
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
-    errors:
-      models:
-        person:
-          attributes:
-            snils:
-              check_sum: имеет неправильную контрольную сумму
-          
+        roomname: Название зала          

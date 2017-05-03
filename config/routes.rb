@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :exhibits
   resources :collections
-  resources :showrooms
   resources :role_users
   resources :roles
   resources :password_resets

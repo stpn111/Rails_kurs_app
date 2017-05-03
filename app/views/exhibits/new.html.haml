@@ -1,13 +1,11 @@
-<<<<<<< HEAD
-%h1 New exhibit
-
-= render 'form'
-
-= link_to 'Back', exhibits_path
-=======
-%h1 Новый экспонат
+=breadcrumb_tag do
+  %li
+    = link_to 'Список экспонатов', exhibits_path
+  %li.active
+    = t('headers.exhibits.new')  
+.page-header
+  %h1= t('headers.exhibits.new')
 
 = render 'form'
 
 = link_to 'Назад', exhibits_path
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706

@@ -1,28 +1,36 @@
 = form_for @collection do |f|
-  - if @collection.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@collection.errors.count, "error")} prohibited this collection from being saved:"
-      %ul
-        - @collection.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :colname
-    = f.text_area :colname
-  .field
-    = f.label :shdescription
-    = f.text_area :shdescription
-  .field
-    = f.label :begindate
-    = f.date_select :begindate
-  .field
-    = f.label :enddate
-    = f.date_select :enddate
-<<<<<<< HEAD
-=======
-  .field
-    = f.label :showrooms
-    = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true}
->>>>>>> 3b08d44ef54a364c95177681c24fb1a4794d5706
+  = error_messages_for @collection
+  .row
+    .col-md-6
+      .form-group
+        = f.label :colname
+        = f.text_area :colname, class: 'form-control'
+        = f.error_messages_for(:colname)
+    .col-md-6
+      .form-group
+        = f.label :shdescription
+        = f.text_area :shdescription, class: 'form-control'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :begindate
+        .input-group.date.datepicker
+          = f.text_field(:begindate, value: lnil(f.object.begindate),
+          class: 'form-control')
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+    .col-md-6
+      .form-group
+        = f.label :enddate
+        .input-group.date.datepicker
+          = f.text_field(:enddate, value: lnil(f.object.enddate),
+          class: 'form-control')
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+  .row
+    .col-md-6
+      .form-group
+        = f.label :showrooms
+        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true}
   .actions
     = f.submit 'Save'
