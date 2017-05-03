@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :check_app_auth, only: [:new, :create, :activate]
   skip_before_filter :require_login, :only => [:new, :create, :activate]
-  
-  before_action -> {redirect_if_not_one_of_role_in ["admin"]}, except: [:new, :create, :activate]
+
 
   # GET /users
   # GET /users.json
