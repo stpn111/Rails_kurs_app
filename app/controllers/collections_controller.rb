@@ -49,7 +49,11 @@ class CollectionsController < ApplicationController
 	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.update(collection_params)
+<<<<<<< HEAD
 		@showrooms.each{|a| a.collections << @collection if !(a.collections.include?(@collection))}
+=======
+		@showrooms.each{|a| a.collections << @collection}
+>>>>>>> origin/master
         format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
         format.json { render :show, status: :ok, location: @collection }
       else
