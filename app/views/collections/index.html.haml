@@ -16,20 +16,13 @@
       %th= Collection.human_attribute_name(:begindate)
       %th= Collection.human_attribute_name(:enddate)
       %th= Collection.human_attribute_name(:showrooms)
-<<<<<<< HEAD
       %th
       %th
       %th
-=======
-      %th.p50
-      %th.p50
-      %th.p50
->>>>>>> origin/master
 
   %tbody
     - @collections.each do |collection|
       %tr
-<<<<<<< HEAD
         %td.center= collection.colname
         %td.center= collection.shdescription
         %td.center= collection.begindate
@@ -37,15 +30,6 @@
         %td.center= collection.showrooms.map{|x| x.roomname}.join(', ')
         %td.right
           = link_to collection, class: 'btn btn-warning' do
-=======
-        %td= collection.colname
-        %td= collection.shdescription
-        %td= collection.begindate
-        %td= collection.enddate
-        %td= collection.showrooms.map{|x| x.roomname}.join(', ')
-        %td
-          = link_to collection, class: 'btn btn-success' do
->>>>>>> origin/master
             = fa_icon :eye
             = t('buttons.show')
           = link_to edit_collection_path(collection), class: 'btn btn-info' do
