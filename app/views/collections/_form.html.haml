@@ -28,9 +28,15 @@
           %span.input-group-addon
             %span.glyphicon.glyphicon-calendar
   .row
+    .col-md-6.hidden-edit
+      .form-group
+        = f.fields_for (:showrooms) do |cf|
+          .field
+            = cf.label :roomname
+            = cf.text_area :roomname, class: 'form-control'
     .col-md-6
       .form-group
         = f.label :showrooms
-        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true}
+        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true,:size => Showroom.all.length}
   .actions
     = f.submit 'Save'

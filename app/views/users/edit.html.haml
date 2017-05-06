@@ -1,13 +1,10 @@
 =breadcrumb_tag do
-  %li.active
-    = t('headers.users.edit')
+  %li
+    = link_to 'Список пользователей', users_path
   %li
     = link_to(@user.email, @user)
-  %li
-    = link_to 'Пользователи', users_path
-  %li
-    Администрирование
-    
+  %li.active
+    = t('headers.users.edit') 
 .page-header
   %h1= t('headers.users.edit')
 

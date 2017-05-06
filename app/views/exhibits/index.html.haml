@@ -36,9 +36,9 @@
         %td.center= exhibit.height
         %td.center= exhibit.width
         %td.center= exhibit.length
-        %td.center= exhibit.tempcontrol
-        %td.center= exhibit.himiditycontrol
-        %td.center= exhibit.peopleprotect
+        %td.center= exhibit.tempcontrol ? "Да" : "Нет"
+        %td.center= exhibit.himiditycontrol ? "Да" : "Нет"
+        %td.center= exhibit.peopleprotect ? "Да" : "Нет"
         %td.center= exhibit.collection.colname
         %td.right
           = link_to exhibit, class: 'btn btn-warning' do

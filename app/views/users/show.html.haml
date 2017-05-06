@@ -1,10 +1,8 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Список пользователей', users_path
   %li.active
     = @user.email
-  %li
-    = link_to 'Пользователи', users_path
-  %li
-    Администрирование
     
 %h1= @user.email
 

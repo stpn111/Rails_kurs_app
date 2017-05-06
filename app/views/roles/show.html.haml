@@ -1,10 +1,8 @@
 =breadcrumb_tag do
+  %li
+    = link_to 'Список ролей', roles_path
   %li.active
-    = @role.name
-  %li
-    = link_to 'Роли', roles_path
-  %li
-    Администрирование
+    = @role.name  
 
 %h1= @role.name
 

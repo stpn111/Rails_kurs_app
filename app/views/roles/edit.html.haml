@@ -1,7 +1,12 @@
-%h1 Editing role
+=breadcrumb_tag do
+  %li
+    = link_to 'Список ролей', roles_path
+  %li
+    = link_to(@role.name, @role)    
+  %li.active
+    = t('headers.roles.edit')  
+    
+.page-header
+  %h1= t('headers.roles.edit')
 
 = render 'form'
-
-= link_to 'Show', @role
-\|
-= link_to 'Back', roles_path

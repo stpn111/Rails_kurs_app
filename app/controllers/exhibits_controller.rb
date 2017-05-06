@@ -3,6 +3,7 @@ class ExhibitsController < ApplicationController
 
   # GET /exhibits
   # GET /exhibits.json
+  
   def index
     @exhibits = Exhibit.all
   end
@@ -28,7 +29,7 @@ class ExhibitsController < ApplicationController
 
     respond_to do |format|
       if @exhibit.save
-        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully created.' }
+        format.html { redirect_to @exhibit, notice: 'Экспонат создан' }
         format.json { render :show, status: :created, location: @exhibit }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ExhibitsController < ApplicationController
   def update
     respond_to do |format|
       if @exhibit.update(exhibit_params)
-        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully updated.' }
+        format.html { redirect_to @exhibit, notice: 'Экспонат обновлен.' }
         format.json { render :show, status: :ok, location: @exhibit }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ExhibitsController < ApplicationController
   def destroy
     @exhibit.destroy
     respond_to do |format|
-      format.html { redirect_to exhibits_url, notice: 'Exhibit was successfully destroyed.' }
+      format.html { redirect_to exhibits_url, notice: 'Экспонат удален.' }
       format.json { head :no_content }
     end
   end

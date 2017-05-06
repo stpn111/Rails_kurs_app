@@ -17,6 +17,7 @@ class CollectionsController < ApplicationController
   def new
     @collection = Collection.new
     @showroom = Showroom.all
+    @collection.showrooms.build
   end
 
   # GET /collections/1/edit
@@ -32,8 +33,8 @@ class CollectionsController < ApplicationController
 	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.save
-		@showrooms.each{|a| a.collections << @collection}
-        format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
+		@showrooms.each{|a| a.collections << @collection if !(@collection.showrooms.include?(@showroom))}
+        format.html { redirect_to @collection, notice: 'Коллекция успешно создана.' }
         format.json { render :show, status: :created, location: @collection }
       else
         format.html { render :new }
@@ -50,7 +51,7 @@ class CollectionsController < ApplicationController
     respond_to do |format|
       if @collection.update(collection_params)
 		@showrooms.each{|a| a.collections << @collection if !(a.collections.include?(@collection))}
-        format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
+        format.html { redirect_to @collection, notice: 'Коллекция успешно обновлена.' }
         format.json { render :show, status: :ok, location: @collection }
       else
         format.html { render :edit }
@@ -64,7 +65,7 @@ class CollectionsController < ApplicationController
   def destroy
     @collection.destroy
     respond_to do |format|
-      format.html { redirect_to collections_url, notice: 'Collection was successfully destroyed.' }
+      format.html { redirect_to collections_url, notice: 'Коллекция удалена' }
       format.json { head :no_content }
     end
   end
@@ -77,6 +78,7 @@ class CollectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def collection_params
-      params.require(:collection).permit(:colname, :shdescription, :begindate, :enddate)
+      params.require(:collection).permit(:colname, :shdescription, :begindate, :enddate,
+      showrooms_attributes: [:id, :roomname])
     end
 end

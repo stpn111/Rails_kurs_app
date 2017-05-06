@@ -30,13 +30,13 @@
   %dd= @exhibit.length
 
   %dt= Exhibit.human_attribute_name(:tempcontrol)
-  %dd= @exhibit.tempcontrol
+  %dd= @exhibit.tempcontrol ? "Да" : "Нет"
 
   %dt= Exhibit.human_attribute_name(:himiditycontrol)
-  %dd= @exhibit.himiditycontrol
+  %dd= @exhibit.himiditycontrol ? "Да" : "Нет"
   
   %dt= Exhibit.human_attribute_name(:peopleprotect)
-  %dd= @exhibit.peopleprotect
+  %dd= @exhibit.peopleprotect ? "Да" : "Нет"
   
   %dt= Exhibit.human_attribute_name(:collection)
   %dd= @exhibit.collection.colname

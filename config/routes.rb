@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :exhibits
+  resources :showrooms
   resources :collections
   resources :role_users
   resources :roles
