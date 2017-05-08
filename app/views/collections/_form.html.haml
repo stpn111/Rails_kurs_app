@@ -37,6 +37,6 @@
     .col-md-6
       .form-group
         = f.label :showrooms
-        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true,:size => Showroom.all.length}
+        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true,:size => Showroom.all.length, class: 'form-control'}
   .actions
     = f.submit 'Save'

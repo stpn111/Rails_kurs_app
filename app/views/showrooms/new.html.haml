@@ -1,4 +1,10 @@
-%h1 Новый выставочный зал
+=breadcrumb_tag do
+  %li
+    = link_to 'Список залов', showrooms_path
+  %li.active
+    = t('headers.showrooms.new')  
+.page-header
+  %h1= t('headers.showrooms.new')
 
 = render 'form'
 

@@ -34,6 +34,9 @@ module SideBarHelper
       {:name => 'Экспонаты',
        :controller => :exhibits, :action => :index,
        :icon => 'trophy'},
+      {:name => 'Выставочные залы',
+       :controller => :showrooms, :action => :index,
+       :icon => 'university'},
     ]} 
     result
   end

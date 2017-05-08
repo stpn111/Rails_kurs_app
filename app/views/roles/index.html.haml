@@ -9,9 +9,10 @@
 
 %table.table.table-hover.table-striped
   %caption
-    = link_to new_role_path, class: 'btn btn-success' do
-      = fa_icon :plus
-      = t('buttons.new.role')
+    - if is_admin?
+      = link_to new_role_path, class: 'btn btn-success' do
+        = fa_icon :plus
+        = t('buttons.new.role')
   %thead
     %tr
       %th= Role.human_attribute_name(:name)
@@ -29,12 +30,14 @@
           = link_to role, class: 'btn btn-warning' do
             = fa_icon :eye
             = t('buttons.show')
-          = link_to edit_role_path(role), class: 'btn btn-info' do
-            = fa_icon :edit
-            = t('buttons.edit')
-          = link_to role, :method => :delete, 
-          :data => { :confirm => t('buttons.confirm.role') }, 
-          class: 'btn btn-danger' do
-            = fa_icon :times
-            = t('buttons.destroy')
+          - if is_admin?  
+            = link_to edit_role_path(role), class: 'btn btn-info' do
+              = fa_icon :edit
+              = t('buttons.edit')
+          - if is_admin?
+            = link_to role, :method => :delete, 
+            :data => { :confirm => t('buttons.confirm.role') }, 
+            class: 'btn btn-danger' do
+              = fa_icon :times
+              = t('buttons.destroy')
 

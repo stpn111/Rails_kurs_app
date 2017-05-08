@@ -1,22 +1,30 @@
-%h1 Список выставочных залов
+=breadcrumb_tag do
+  %li.active
+    Список залов
+.page-header
+  %h1= t('headers.showrooms.index')
 
-%table.table.table-hover.table-striped.center
+%table.table.table-hover.table-striped
+  %caption
+    = link_to new_showroom_path, class: 'btn btn-success' do
+      = fa_icon :plus
+      = t('buttons.new.showroom')
   %thead
     %tr
       %th= Showroom.human_attribute_name(:roomname)
-      %th.p50
-      %th.p50
-      %th.p50
+      %th
+      %th
+      %th
 
   %tbody
     - @showrooms.each do |showroom|
       %tr
-        %td{:style=>'text-align:center'}= showroom.roomname
+        %td.center= showroom.roomname
         %td.right
           = link_to showroom, class: 'btn btn-warning' do
             = fa_icon :eye
             = t('buttons.show')
-          = link_to edit_collection_path(showroom), class: 'btn btn-info' do
+          = link_to edit_showroom_path(showroom), class: 'btn btn-info' do
             = fa_icon :edit
             = t('buttons.edit')
           = link_to showroom, :method => :delete, 
@@ -24,7 +32,3 @@
           class: 'btn btn-danger' do
             = fa_icon :times
             = t('buttons.destroy')
-%table.table.table-hover.table-striped.center
-  %caption
-    .pull
-      = link_to t('app.showrooms.new-button'), new_showroom_path, class: 'btn btn-primary'

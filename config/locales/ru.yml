@@ -18,11 +18,13 @@ ru:
       role: Действительно удалить роль?
       collection: Действительно удалить коллекцию?
       exhibit: Действительно удалить экспонат?
+      showroom: Действительно удалить зал?
     new: 
       user: Новый пользователь
       role: Новая роль
       collection: Новая коллекция
       exhibit: Новый экспонат
+      showroom: Новый зал
   headers:
     users:
       edit: Редактирование пользователя
@@ -43,8 +45,11 @@ ru:
       edit: Редактирование экспоната
       show: Просмотр информации об экспонате
     showrooms:
-      new-button: Новый зал
-      roomname: Название зала       
+      new: Новый зал
+      index: Список залов
+      edit: Редактирование зала
+      show: Просмотр информации о зале
+          
   views:
     pagination:
       first: ⇤
@@ -89,4 +94,15 @@ ru:
         peopleprotect: Защищать от людей
         collection: Коллекция
       showroom:
-        roomname: Название зала          
+        roomname: Название зала     
+      # nested_start
+      role_user: &role_users
+      # nested_finish
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      # nested_start
+      user/role_users:
+        <<: *role_users
+      # nested_finish
+                       
