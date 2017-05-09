@@ -10,6 +10,7 @@
   %dt= Showroom.human_attribute_name(:roomname)
   %dd= @showroom.roomname
 
-= link_to 'Назад', showrooms_path
-\|
-= link_to 'Редактировать', edit_showroom_path(@showroom)
+= link_to 'Назад', showrooms_path, class: 'btn btn-primary'
+- if is_admin? || is_operator?
+  \|
+  = link_to 'Редактировать', edit_showroom_path(@showroom), class: 'btn btn-primary'

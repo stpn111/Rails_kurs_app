@@ -6,9 +6,10 @@
   
 %table.table.table-hover.table-striped
   %caption
-    = link_to new_exhibit_path, class: 'btn btn-success' do
-      = fa_icon :plus
-      = t('buttons.new.exhibit')   
+    - if is_admin? || is_operator?
+      = link_to new_exhibit_path, class: 'btn btn-success' do
+        = fa_icon :plus
+        = t('buttons.new.exhibit')   
   %thead
     %tr
       %th= Exhibit.human_attribute_name(:name)
@@ -22,8 +23,6 @@
       %th= Exhibit.human_attribute_name(:himiditycontrol)
       %th= Exhibit.human_attribute_name(:peopleprotect)
       %th= Exhibit.human_attribute_name(:collection)
-      %th
-      %th
       %th
 
   %tbody
@@ -44,11 +43,12 @@
           = link_to exhibit, class: 'btn btn-warning' do
             = fa_icon :eye
             = t('buttons.show')
-          = link_to edit_exhibit_path(exhibit), class: 'btn btn-info' do
-            = fa_icon :edit
-            = t('buttons.edit')
-          = link_to exhibit, :method => :delete, 
-          :data => { :confirm => t('buttons.confirm.exhibit') }, 
-          class: 'btn btn-danger' do
-            = fa_icon :times
-            = t('buttons.destroy')
+          -if is_admin? || is_operator?  
+            = link_to edit_exhibit_path(exhibit), class: 'btn btn-info' do
+              = fa_icon :edit
+              = t('buttons.edit')
+            = link_to exhibit, :method => :delete, 
+            :data => { :confirm => t('buttons.confirm.exhibit') }, 
+            class: 'btn btn-danger' do
+              = fa_icon :times
+              = t('buttons.destroy')

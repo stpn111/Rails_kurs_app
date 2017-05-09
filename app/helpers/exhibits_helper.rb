@@ -6,7 +6,7 @@ module ExhibitsHelper
     # Нам нужна nested-форма. В момент создания ссылки её ещё нет. Создадим её
     # Все role_users в форме имеют свой номер 
     # Мы его пока заменям на фразу new_ru
-    fields = form.fields_for(:collections, new_object, 
+    fields = form.fields_for(:collection, new_object, 
       :child_index => 'new_collection') do |fr|
       render('exhibits/one_exhibit_form', fr: fr, i: 'Новая')
     end

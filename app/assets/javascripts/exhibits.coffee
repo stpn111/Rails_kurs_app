@@ -33,6 +33,6 @@
 ru_ready = ->
   window.add_new_ru()
   window.del_all_rus()
-$(document).on 'turbolinks:load', ru_ready # Включаем при ajax обновлении страницы
+#$(document).on 'turbolinks:load', ru_ready # Включаем при ajax обновлении страницы
 #$(document).ready ru_ready # Включаем при обычном обновлении страницы
 # nested_finish

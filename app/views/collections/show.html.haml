@@ -26,8 +26,9 @@
   %dd= @collection.showrooms.map{ |a| a.roomname }.join(', ')
 
 
-= link_to 'Назад', collections_path
-\|
-= link_to 'Редактировать', edit_collection_path(@collection)
+= link_to 'Назад', collections_path, class: 'btn btn-primary'
+-if is_admin? || is_operator?
+  \|
+  = link_to 'Редактировать', edit_collection_path(@collection), class: 'btn btn-primary'
 
 

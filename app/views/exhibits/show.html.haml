@@ -41,7 +41,8 @@
   %dt= Exhibit.human_attribute_name(:collection)
   %dd= @exhibit.collection.colname
   
-= link_to 'Назад', exhibits_path
-\|
-= link_to 'Редактировать', edit_exhibit_path(@exhibit)
+= link_to 'Назад', exhibits_path, class: 'btn btn-primary'
+- if is_admin? || is_operator?
+  \|
+  = link_to 'Редактировать', edit_exhibit_path(@exhibit), class: 'btn btn-primary'
 

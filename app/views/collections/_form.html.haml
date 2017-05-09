@@ -38,5 +38,5 @@
       .form-group
         = f.label :showrooms
         = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true,:size => Showroom.all.length, class: 'form-control'}
-  .actions
-    = f.submit 'Save'
+  .actions.margin-small-top
+    = f.submit nil, class: 'btn btn-primary'

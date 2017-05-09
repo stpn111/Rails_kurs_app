@@ -84,7 +84,7 @@ class UsersController < ApplicationController
         :activation_state, :activation_token, :activation_token_expires_at, :birthday,
       # nested_start
       # Добавляем связанные атрибуты
-        {role_users_attributes: [:_destroy, :id, :role_id, :data]}
+        role_users_attributes: [:id, :_destroy, :role_id, :data]
       # nested_finish
       )
     end

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
             if: Proc.new { |u| u.new_record? or !u.password.blank? }
 
   # nested_start
-  has_many :role_users, dependent: :destroy 
+  has_many :role_users, dependent: :destroy, inverse_of: :user
   # добавлено dependent, чтобы можно было удалять пользователей, у которых
   # есть роли
   

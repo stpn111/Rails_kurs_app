@@ -15,20 +15,26 @@
       = t('buttons.new.user')      
   %thead
     %tr
-      %th= User.human_attribute_name(:email)
-      %th= User.human_attribute_name(:birthday)
+      - if is_admin? || is_operator?
+        %th= User.human_attribute_name(:email)
+        %th= User.human_attribute_name(:birthday)
+      - else
+        %th= "Зарегистрируйтесь в системе!"  
       %th
   %tbody
     - @users.each do |user|
       %tr
-        %td.center= user.email
-        %td.center= lnil(user.birthday)
+        - if is_admin? || is_operator?
+          %td.center= user.email
+          %td.center= lnil(user.birthday)
         %td.right
-          = link_to edit_user_path(user), class: 'btn btn-info' do
-            = fa_icon :edit
-            = t('buttons.edit')
-          = link_to user, :method => :delete, 
-          :data => { :confirm => t('buttons.confirm.user') }, 
-          class: 'btn btn-danger' do
-            = fa_icon :times
-            = t('buttons.destroy')
+          - if is_admin? || is_operator?
+            = link_to edit_user_path(user), class: 'btn btn-info' do
+              = fa_icon :edit
+              = t('buttons.edit')
+          - if is_admin?    
+            = link_to user, :method => :delete, 
+            :data => { :confirm => t('buttons.confirm.user') }, 
+            class: 'btn btn-danger' do
+              = fa_icon :times
+              = t('buttons.destroy')

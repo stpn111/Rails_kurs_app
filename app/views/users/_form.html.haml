@@ -31,7 +31,7 @@
           = f.error_messages_for(:password_confirmation)
   - # Форма для редактирования связки роль-пользователь
   - # nested_start
-  - if is_admin?
+  - if @current_role_user.present? and is_admin?
     .row.bottom20
       .col-md-12
         -# Кнопка для добавления связи роль-пользователь. См. role_users_helper
@@ -42,5 +42,5 @@
       -# новыми
       = fr.hidden_field(:id)
       -# Чтобы не повторять код, выделяем его часть в отдельный файл
-      = render('users/one_role_user_form', fr: fr, i: i + 1)
+      = render('users/one_role_user_form', fr: fr, i: i += 1)
     - # nested_finish

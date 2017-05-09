@@ -15,21 +15,26 @@
         = t('buttons.new.role')
   %thead
     %tr
-      %th= Role.human_attribute_name(:name)
-      %th= Role.human_attribute_name(:info)
-      %th= Role.human_attribute_name(:full_info)
+      - if is_admin? || is_operator?
+        %th= Role.human_attribute_name(:name)
+        %th= Role.human_attribute_name(:info)
+        %th= Role.human_attribute_name(:full_info)
+      - else
+        %th= "Зарегистрируйтесь в системе!"
       %th
 
   %tbody
     - @roles.each do |role|
       %tr
-        %td.center= role.name
-        %td.center= role.info
-        %td.center= role.full_info
+        - if is_admin? || is_operator?
+          %td.center= role.name
+          %td.center= role.info
+          %td.center= role.full_info
         %td.right
-          = link_to role, class: 'btn btn-warning' do
-            = fa_icon :eye
-            = t('buttons.show')
+          - if is_admin? || is_operator?
+            = link_to role, class: 'btn btn-warning' do
+              = fa_icon :eye
+              = t('buttons.show')
           - if is_admin?  
             = link_to edit_role_path(role), class: 'btn btn-info' do
               = fa_icon :edit

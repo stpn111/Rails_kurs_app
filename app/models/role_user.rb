@@ -1,6 +1,6 @@
 class RoleUser < ActiveRecord::Base
   belongs_to :role
-  belongs_to :user
+  belongs_to :user, inverse_of: :role_users
   
   validates :role, presence: true
   validates :user, presence: true

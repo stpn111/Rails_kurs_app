@@ -1,5 +1,5 @@
 class Exhibit < ActiveRecord::Base
-  belongs_to :collection
+  belongs_to :collection, inverse_of: :exhibits
   validates :name, :sdescription, presence: true
   validates :name, :sdescription, length: {maximum:100}
   validates :name, uniqueness: {scope: [:name]}
