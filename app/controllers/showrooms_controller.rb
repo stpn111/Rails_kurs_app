@@ -1,6 +1,7 @@
 class ShowroomsController < ApplicationController
   before_action :set_showroom, only: [:show, :edit, :update, :destroy]
-
+  #https://apidock.com/rails/ActionController/Filters/ClassMethods/before_filter
+  before_action -> {check_auth ["admin", "operator"]}, except: [:show, :index]
   # GET /showrooms
   # GET /showrooms.json
   def index

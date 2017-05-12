@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
-
+  before_action -> {check_auth ["admin", "operator"]}, except: [:index]
   # GET /roles
   # GET /roles.json
   def index

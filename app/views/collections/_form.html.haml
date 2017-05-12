@@ -10,6 +10,7 @@
       .form-group
         = f.label :shdescription
         = f.text_area :shdescription, class: 'form-control'
+        = f.error_messages_for(:shdescription)    
   .row
     .col-md-6
       .form-group
@@ -19,6 +20,7 @@
           class: 'form-control')
           %span.input-group-addon
             %span.glyphicon.glyphicon-calendar
+        = f.error_messages_for(:begindate)        
     .col-md-6
       .form-group
         = f.label :enddate
@@ -27,16 +29,23 @@
           class: 'form-control')
           %span.input-group-addon
             %span.glyphicon.glyphicon-calendar
+        = f.error_messages_for(:enddate)    
   .row
-    .col-md-6.hidden-edit
-      .form-group
-        = f.fields_for (:showrooms) do |cf|
-          .field
-            = cf.label :roomname
-            = cf.text_area :roomname, class: 'form-control'
     .col-md-6
       .form-group
         = f.label :showrooms
-        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true,:size => Showroom.all.length, class: 'form-control'}
+        -# не реализовано через showrooms_ids, поскольку тогда происходит конфликт со значениями
+        = f.collection_select(:showroom_ids, Showroom.all, :id, :roomname, {include_hidden: false}, {multiple: true,:size => Showroom.all.length, class: 'form-control'})
+        %h6 Для выбора нескольких или доп. залов зажмите Ctrl и выберите все нужные залы.
+        %h6 Для удаления зала воспользуйтесь соответствующей кнопкой.
+        %h6 Вы можете изменить название любого нужного зала, изменив его прямо в форме.
+    - if is_admin?
+      .col-md-6 
+        .form-group
+          = link_to_add_showroom(f, f.object)
+    - i = 0      
+    = f.fields_for :showrooms do |fr|
+      = fr.hidden_field :id
+      = render('collections/many_showrooms_form', fr: fr, i: i += 1)  
   .actions.margin-small-top
     = f.submit nil, class: 'btn btn-primary'

@@ -19,7 +19,7 @@
         %th= User.human_attribute_name(:email)
         %th= User.human_attribute_name(:birthday)
       - else
-        %th= "Зарегистрируйтесь в системе!"  
+        %th= "Информация видна только администраторам!"  
       %th
   %tbody
     - @users.each do |user|

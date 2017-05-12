@@ -50,24 +50,17 @@
       .form-group
         = f.label :peopleprotect
         = f.check_box :peopleprotect
-    .col-md-6.hidden-edit
+
+  .row
+    .col-md-6
       .form-group
-      = f.label :collection
-      = f.select :collection_id, Collection.all.map{|x| [x.colname, x.id]}, {}, {class: 'form-control'}
-      = f.error_messages_for(:collection_id)
-      %br
+        = f.label :collection, {id: 'collection_label'}
+        = f.select :collection_id, Collection.all.map{|x| [x.colname, x.id]}, {include_blank: true},  {class: 'form-control', id: 'collection_select'}
+        = f.error_messages_for(:collection_id)
+  #collection-edit-new
+    = f.fields_for :collection, f.object.collection || f.object.build_collection do |fr|
+      %fieldset#collection-fieldset{"data-content" => "#{render "collection_form", fr: fr}"}
+        %div#collection-fields
+  %br     
   .actions.margin-small-top
-    = f.submit nil, class: 'btn btn-primary'
-  - if @current_role_user.present? and is_admin?
-    .row.bottom20
-      .col-md-12
-        -# Кнопка для добавления связи роль-пользователь. См. role_users_helper
-        = link_to_add_collection(f, f.object)
-    - i = 0
-    = f.fields_for(:collections) do |fr|
-      -# Скрытое поле - id связи роль-пользователь. Иначе все связи будут
-      -# новыми
-      = fr.hidden_field(:id)
-      -# Чтобы не повторять код, выделяем его часть в отдельный файл
-      = render('exhibits/one_exhibit_form', fr: fr, i: i + 1)
-    - # nested_finish
+    = f.submit nil, class: 'btn btn-primary', id: 'exhibit_save'

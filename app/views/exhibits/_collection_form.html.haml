@@ -1,0 +1,47 @@
+= fr.hidden_field(:id)
+.row
+  .col-md-6
+    .form-group
+      = fr.label :colname
+      = fr.text_area :colname, class: 'form-control'
+      = fr.error_messages_for(:colname)
+  .col-md-6
+    .form-group
+      = fr.label :shdescription
+      = fr.text_area :shdescription, class: 'form-control'
+      = fr.error_messages_for(:shdescription)    
+.row
+  .col-md-6
+    .form-group
+      = fr.label :begindate
+      .input-group.date.datepicker
+        = fr.text_field(:begindate, value: lnil(fr.object.begindate),
+        class: 'form-control')
+        %span.input-group-addon
+          %span.glyphicon.glyphicon-calendar
+      = fr.error_messages_for(:begindate)        
+  .col-md-6
+    .form-group
+      = fr.label :enddate
+      .input-group.date.datepicker
+        = fr.text_field(:enddate, value: lnil(fr.object.enddate),
+        class: 'form-control')
+        %span.input-group-addon
+          %span.glyphicon.glyphicon-calendar
+      = fr.error_messages_for(:enddate)    
+.row.hidden-edit
+  .col-md-6
+    .form-group
+      = fr.label :showrooms
+      = fr.collection_select(:showroom_ids, Showroom.all, :id, :roomname, {include_hidden: false}, {multiple: true,:size => Showroom.all.length, class: 'form-control'})
+      %h6 Для выбора нескольких или доп. залов зажмите Ctrl и выберите все нужные залы.
+      %h6 Для удаления зала воспользуйтесь соответствующей кнопкой.
+      %h6 Вы можете изменить название любого нужного зала, изменив его прямо в форме.
+  - if is_admin?  
+    .col-md-6 
+      .form-group
+        = link_to_add_showroom(fr, fr.object)
+  - i = 0      
+  = fr.fields_for :showrooms do |fr|
+    = fr.hidden_field :id
+    = render('many_showrooms_form', fr: fr, i: i += 1)

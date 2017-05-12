@@ -6,7 +6,7 @@
 
 %table.table.table-hover.table-striped
   %caption
-    - if is_admin? || is_operator?
+    - if is_admin?
       = link_to new_showroom_path, class: 'btn btn-success' do
         = fa_icon :plus
         = t('buttons.new.showroom')
@@ -27,6 +27,7 @@
             = link_to edit_showroom_path(showroom), class: 'btn btn-info' do
               = fa_icon :edit
               = t('buttons.edit')
+          - if is_admin?     
             = link_to showroom, :method => :delete, 
             :data => { :confirm => t('buttons.confirm.showroom') }, 
             class: 'btn btn-danger' do

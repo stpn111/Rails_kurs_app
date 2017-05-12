@@ -1,9 +1,11 @@
 ru:
   app:
-    name: Базовое приложение
+    name: Музейная система
     company:
       short_name: МПУ
       department: Кафедра
+    collection:
+      new: Новый зал
   helpers:
     submit:
       create: Сохранить
@@ -105,4 +107,7 @@ ru:
       user/role_users:
         <<: *role_users
       # nested_finish
-                       
+      showroom: &showrooms
+        roomname: Зал
+      collection/showrooms:
+        <<: *showrooms                   

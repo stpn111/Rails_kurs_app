@@ -5,7 +5,7 @@ class Collection < ActiveRecord::Base
   validates :colname, :shdescription, :begindate, :enddate, presence: true
   validates :colname, uniqueness: {scope: [:colname]}
   validates :colname, :shdescription, length: {maximum:100}
-  accepts_nested_attributes_for :showrooms
+  accepts_nested_attributes_for :showrooms, allow_destroy: true
   
   private
 	  def end_after_start

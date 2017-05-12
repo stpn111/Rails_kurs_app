@@ -1,0 +1,21 @@
+-# nested_start
+.col-md-6
+  %div{class: 'panel panel-'+ (i.kind_of?(Integer) ? 'success' : 'info')}
+    .panel-heading
+      Зал
+      = i
+      %span.toright
+        -# Кнопка для удаления связи роль-пользователь. См. role_users_helper
+        = fr.check_box :_destroy
+        = fr.label t('buttons.destroy')
+      .clearfix
+    .panel-body
+      .row
+        .col-md-6
+          .form-group
+            = fr.label :roomname
+            = fr.text_area :roomname, class: 'form-control'
+            = fr.error_messages_for(:roomname)
+
+-# nested_finish
+

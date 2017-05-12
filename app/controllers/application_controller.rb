@@ -34,17 +34,17 @@ class ApplicationController < ActionController::Base
 
  #     unless check_ctr_auth()
  #         redirect_to(ip_path(
- #         :bad_action_name => action_name,
- #         :bad_controller_name => controller_name,
- #         :bad_user_role => @current_role_user.try(:id)))
- #      end
+ #        :bad_action_name => action_name,
+ #        :bad_controller_name => controller_name,
+ #        :bad_user_role => @current_role_user.try(:id)))
+ #     end
     end
   end
 
   ## Проверка прав доступа выбранной роли для данного метода
-  def check_ctr_auth()
-    return @current_role_user.try(:is_admin? || :is_operator? )
-  end
+  #def check_ctr_auth()
+  #  return @current_role_user.try(:is_admin? || :is_operator? )
+  #end
 
   def not_authenticated
     redirect_to login_path, danger: "Сначала войдите в систему!"
