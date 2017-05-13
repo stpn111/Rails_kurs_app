@@ -27,9 +27,9 @@
     - @roles.each do |role|
       %tr
         - if is_admin? || is_operator?
-          %td.center= role.name
-          %td.center= role.info
-          %td.center= role.full_info
+          %td{"data-label" => "Обозначение"}= role.name
+          %td{"data-label" => "Краткое название"}= role.info
+          %td{"data-label" => "Описание"}= role.full_info
         %td.right
           - if is_admin? || is_operator?
             = link_to role, class: 'btn btn-warning' do

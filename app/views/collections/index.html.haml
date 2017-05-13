@@ -22,11 +22,11 @@
   %tbody
     - @collections.each do |collection|
       %tr
-        %td.center= collection.colname
-        %td.center= collection.shdescription
-        %td.center= collection.begindate
-        %td.center= collection.enddate
-        %td.center= collection.showrooms.map{|x| x.roomname}.join(', ')
+        %td{"data-label" => "Название"}= collection.colname
+        %td{"data-label" => "Описание"}= collection.shdescription
+        %td{"data-label" => "Дата начала"}= collection.begindate
+        %td{"data-label" => "Дата окончания"}= collection.enddate
+        %td{"data-label" => "Название зала"}= collection.showrooms.map{|x| x.roomname}.join(', ')
         %td.right
           = link_to collection, class: 'btn btn-warning' do
             = fa_icon :eye

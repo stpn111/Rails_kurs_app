@@ -21,7 +21,7 @@
   %tbody
     - @showrooms.each do |showroom|
       %tr
-        %td.center= showroom.roomname
+        %td{"data-label" => "Зал"}= showroom.roomname
         %td.right
           = link_to showroom, class: 'btn btn-warning' do
             = fa_icon :eye

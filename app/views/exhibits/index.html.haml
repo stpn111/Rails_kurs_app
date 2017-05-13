@@ -4,42 +4,41 @@
 .page-header
   %h1= t('headers.exhibits.index') 
 
-%div.table-responsive
-  %table.table.table-hover.table-striped
-    %caption
-      - if is_admin? || is_operator?
-        = link_to new_exhibit_path, class: 'btn btn-success' do
-          = fa_icon :plus
-          = t('buttons.new.exhibit')   
-    %thead
-      %tr
-        %th= Exhibit.human_attribute_name(:name)
-        %th= Exhibit.human_attribute_name(:sdescription)
-        %th= Exhibit.human_attribute_name(:insurance)
-        %th= Exhibit.human_attribute_name(:century)
-        %th= Exhibit.human_attribute_name(:height)
-        %th= Exhibit.human_attribute_name(:width)
-        %th= Exhibit.human_attribute_name(:length)
-        %th= Exhibit.human_attribute_name(:tempcontrol)
-        %th= Exhibit.human_attribute_name(:himiditycontrol)
-        %th= Exhibit.human_attribute_name(:peopleprotect)
-        %th= Exhibit.human_attribute_name(:collection)
-        %th
+%table.table.table-hover.table-striped
+  %caption
+    - if is_admin? || is_operator?
+      = link_to new_exhibit_path, class: 'btn btn-success' do
+        = fa_icon :plus
+        = t('buttons.new.exhibit')   
+  %thead
+    %tr
+      %th= Exhibit.human_attribute_name(:name)
+      %th= Exhibit.human_attribute_name(:sdescription)
+      %th= Exhibit.human_attribute_name(:insurance)
+      %th= Exhibit.human_attribute_name(:century)
+      %th= Exhibit.human_attribute_name(:height)
+      %th= Exhibit.human_attribute_name(:width)
+      %th= Exhibit.human_attribute_name(:length)
+      %th= Exhibit.human_attribute_name(:tempcontrol)
+      %th= Exhibit.human_attribute_name(:himiditycontrol)
+      %th= Exhibit.human_attribute_name(:peopleprotect)
+      %th= Exhibit.human_attribute_name(:collection)
+      %th
 
     %tbody
       - @exhibits.each do |exhibit|
         %tr
-          %td.center= exhibit.name
-          %td.center= exhibit.sdescription
-          %td.center= exhibit.insurance
-          %td.center= exhibit.century
-          %td.center= exhibit.height
-          %td.center= exhibit.width
-          %td.center= exhibit.length
-          %td.center= exhibit.tempcontrol ? "Да" : "Нет"
-          %td.center= exhibit.himiditycontrol ? "Да" : "Нет"
-          %td.center= exhibit.peopleprotect ? "Да" : "Нет"
-          %td.center= exhibit.collection.colname
+          %td{"data-label" => "Название"}= exhibit.name
+          %td{"data-label" => "Описание"}= exhibit.sdescription
+          %td{"data-label" => "Страховая стоимость"}= exhibit.insurance
+          %td{"data-label" => "Век"}= exhibit.century
+          %td{"data-label" => "Высота"}= exhibit.height
+          %td{"data-label" => "Ширина"}= exhibit.width
+          %td{"data-label" => "Длина"}= exhibit.length
+          %td{"data-label" => "Требуется темп. режим?"}= exhibit.tempcontrol ? "Да" : "Нет"
+          %td{"data-label" => "Требуется собл. влажность?"}= exhibit.himiditycontrol ? "Да" : "Нет"
+          %td{"data-label" => "Защищать от людей?"}= exhibit.peopleprotect ? "Да" : "Нет"
+          %td{"data-label" => "Название коллекции"}= exhibit.collection.colname
           %td.right
             = link_to exhibit, class: 'btn btn-warning' do
               = fa_icon :eye

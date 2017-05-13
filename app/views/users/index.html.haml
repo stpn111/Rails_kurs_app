@@ -25,8 +25,8 @@
     - @users.each do |user|
       %tr
         - if is_admin? || is_operator?
-          %td.center= user.email
-          %td.center= lnil(user.birthday)
+          %td{"data-label" => "e-mail"}= user.email
+          %td{"data-label" => "День рождения"}= lnil(user.birthday)
         %td.right
           - if is_admin? || is_operator?
             = link_to edit_user_path(user), class: 'btn btn-info' do
