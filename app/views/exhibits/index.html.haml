@@ -3,52 +3,53 @@
     Список экспонатов
 .page-header
   %h1= t('headers.exhibits.index') 
-  
-%table.table.table-hover.table-striped
-  %caption
-    - if is_admin? || is_operator?
-      = link_to new_exhibit_path, class: 'btn btn-success' do
-        = fa_icon :plus
-        = t('buttons.new.exhibit')   
-  %thead
-    %tr
-      %th= Exhibit.human_attribute_name(:name)
-      %th= Exhibit.human_attribute_name(:sdescription)
-      %th= Exhibit.human_attribute_name(:insurance)
-      %th= Exhibit.human_attribute_name(:century)
-      %th= Exhibit.human_attribute_name(:height)
-      %th= Exhibit.human_attribute_name(:width)
-      %th= Exhibit.human_attribute_name(:length)
-      %th= Exhibit.human_attribute_name(:tempcontrol)
-      %th= Exhibit.human_attribute_name(:himiditycontrol)
-      %th= Exhibit.human_attribute_name(:peopleprotect)
-      %th= Exhibit.human_attribute_name(:collection)
-      %th
 
-  %tbody
-    - @exhibits.each do |exhibit|
+%div.table-responsive
+  %table.table.table-hover.table-striped
+    %caption
+      - if is_admin? || is_operator?
+        = link_to new_exhibit_path, class: 'btn btn-success' do
+          = fa_icon :plus
+          = t('buttons.new.exhibit')   
+    %thead
       %tr
-        %td.center= exhibit.name
-        %td.center= exhibit.sdescription
-        %td.center= exhibit.insurance
-        %td.center= exhibit.century
-        %td.center= exhibit.height
-        %td.center= exhibit.width
-        %td.center= exhibit.length
-        %td.center= exhibit.tempcontrol ? "Да" : "Нет"
-        %td.center= exhibit.himiditycontrol ? "Да" : "Нет"
-        %td.center= exhibit.peopleprotect ? "Да" : "Нет"
-        %td.center= exhibit.collection.colname
-        %td.right
-          = link_to exhibit, class: 'btn btn-warning' do
-            = fa_icon :eye
-            = t('buttons.show')
-          -if is_admin? || is_operator?  
-            = link_to edit_exhibit_path(exhibit), class: 'btn btn-info' do
-              = fa_icon :edit
-              = t('buttons.edit')
-            = link_to exhibit, :method => :delete, 
-            :data => { :confirm => t('buttons.confirm.exhibit') }, 
-            class: 'btn btn-danger' do
-              = fa_icon :times
-              = t('buttons.destroy')
+        %th= Exhibit.human_attribute_name(:name)
+        %th= Exhibit.human_attribute_name(:sdescription)
+        %th= Exhibit.human_attribute_name(:insurance)
+        %th= Exhibit.human_attribute_name(:century)
+        %th= Exhibit.human_attribute_name(:height)
+        %th= Exhibit.human_attribute_name(:width)
+        %th= Exhibit.human_attribute_name(:length)
+        %th= Exhibit.human_attribute_name(:tempcontrol)
+        %th= Exhibit.human_attribute_name(:himiditycontrol)
+        %th= Exhibit.human_attribute_name(:peopleprotect)
+        %th= Exhibit.human_attribute_name(:collection)
+        %th
+
+    %tbody
+      - @exhibits.each do |exhibit|
+        %tr
+          %td.center= exhibit.name
+          %td.center= exhibit.sdescription
+          %td.center= exhibit.insurance
+          %td.center= exhibit.century
+          %td.center= exhibit.height
+          %td.center= exhibit.width
+          %td.center= exhibit.length
+          %td.center= exhibit.tempcontrol ? "Да" : "Нет"
+          %td.center= exhibit.himiditycontrol ? "Да" : "Нет"
+          %td.center= exhibit.peopleprotect ? "Да" : "Нет"
+          %td.center= exhibit.collection.colname
+          %td.right
+            = link_to exhibit, class: 'btn btn-warning' do
+              = fa_icon :eye
+              = t('buttons.show')
+            -if is_admin? || is_operator?  
+              = link_to edit_exhibit_path(exhibit), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to exhibit, :method => :delete, 
+              :data => { :confirm => t('buttons.confirm.exhibit') }, 
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')

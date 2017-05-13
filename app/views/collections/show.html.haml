@@ -1,8 +1,6 @@
 =breadcrumb_tag do
   %li
     = link_to 'Список коллекций', collections_path
-  %li
-    = link_to(@collection.colname, @collection)  
   %li.active
     = t('headers.collections.show')
 %p#notice= notice

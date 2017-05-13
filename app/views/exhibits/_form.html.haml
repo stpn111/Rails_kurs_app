@@ -52,15 +52,11 @@
         = f.check_box :peopleprotect
 
   .row
-    .col-md-6
+    .col-md-4
       .form-group
         = f.label :collection, {id: 'collection_label'}
-        = f.select :collection_id, Collection.all.map{|x| [x.colname, x.id]}, {include_blank: true},  {class: 'form-control', id: 'collection_select'}
-        = f.error_messages_for(:collection_id)
-  #collection-edit-new
-    = f.fields_for :collection, f.object.collection || f.object.build_collection do |fr|
-      %fieldset#collection-fieldset{"data-content" => "#{render "collection_form", fr: fr}"}
-        %div#collection-fields
-  %br     
+        = f.select :collection_id, Collection.all.map{|x| [x.colname, x.id]}, {},  {class: 'form-control', id: 'collection_select'}
+        %h6 Выберите другую коллекцию или оставьте текущую.
+        = f.error_messages_for(:collection_id)   
   .actions.margin-small-top
     = f.submit nil, class: 'btn btn-primary', id: 'exhibit_save'

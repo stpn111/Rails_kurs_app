@@ -34,11 +34,9 @@
     .col-md-6
       .form-group
         = f.label :showrooms
-        -# не реализовано через showrooms_ids, поскольку тогда происходит конфликт со значениями
-        = f.collection_select(:showroom_ids, Showroom.all, :id, :roomname, {include_hidden: false}, {multiple: true,:size => Showroom.all.length, class: 'form-control'})
-        %h6 Для выбора нескольких или доп. залов зажмите Ctrl и выберите все нужные залы.
-        %h6 Для удаления зала воспользуйтесь соответствующей кнопкой.
-        %h6 Вы можете изменить название любого нужного зала, изменив его прямо в форме.
+        = f.select :showrooms, Showroom.all.collect{|t| [t.roomname, t.id]}, {}, {:multiple => true,:size => Showroom.all.length, class: 'form-control'}
+        %h6 Для выбора нескольких залов зажмите Ctrl и выберите все нужные залы.
+        %h6 Для удаления зала воспользуйтесь соответствующей кнопкой. Изменить название любого нужного зала, можно изменив прямо в его форме.
     - if is_admin?
       .col-md-6 
         .form-group

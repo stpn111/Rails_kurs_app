@@ -8,10 +8,10 @@ class Collection < ActiveRecord::Base
   accepts_nested_attributes_for :showrooms, allow_destroy: true
   
   private
-	  def end_after_start
-		return if enddate.blank? || begindate.blank?
-          if enddate < begindate
-			errors.add(:enddate, "must be after the start date") 
-		  end 
-	  end
+	 def end_after_start
+	   return if enddate.blank? || begindate.blank?
+         if enddate < begindate
+	       errors.add(:enddate, "должна быть раньше даты начала.") 
+		 end 
+	 end
 end

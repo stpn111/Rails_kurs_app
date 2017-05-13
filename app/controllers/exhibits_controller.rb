@@ -72,8 +72,6 @@ class ExhibitsController < ApplicationController
     
     #без долбаных showrooms_ids => [] SELECT РАБОТАТЬ НЕ БУДЕТ! НЕ ЗАБЫТЬ! http://stackoverflow.com/questions/27459269/rails-4-collection-select-multiple-nested-attributes-not-saving-properly
     def exhibit_params
-      params.require(:exhibit).permit(:name, :sdescription, :insurance, :century, :height, :width, :length, :tempcontrol, :himiditycontrol, :peopleprotect, :collection_id,
-      collection_attributes: [:id, :colname, :shdescription, :begindate, :enddate, :_destroy, :showroom_ids => [],
-      showrooms_attributes: [:id, :roomname, :_destroy]])
+      params.require(:exhibit).permit(:name, :sdescription, :insurance, :century, :height, :width, :length, :tempcontrol, :himiditycontrol, :peopleprotect, :collection_id)
     end
 end

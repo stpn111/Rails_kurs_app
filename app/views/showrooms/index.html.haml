@@ -12,6 +12,9 @@
         = t('buttons.new.showroom')
   %thead
     %tr
+      -if is_operator?
+        .center
+          %h6 Добавлять и удалять залы может только администратор!
       %th= Showroom.human_attribute_name(:roomname)
       %th
 

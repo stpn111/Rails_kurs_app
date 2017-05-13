@@ -29,8 +29,11 @@ class CollectionsController < ApplicationController
   # POST /collections.json
   def create
     @collection = Collection.new(collection_params)
+	@showrooms = []
+	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.save
+		@showrooms.each{|a| a.collections << @collection if !(@collection.showrooms.include?(@showroom))}
         format.html { redirect_to @collection, notice: 'Коллекция успешно создана.' }
         format.json { render :show, status: :created, location: @collection }
       else
@@ -43,8 +46,11 @@ class CollectionsController < ApplicationController
   # PATCH/PUT /collections/1
   # PATCH/PUT /collections/1.json
   def update
+	@showrooms = []
+	params[:collection][:showrooms].each{|a| @showrooms << Showroom.find(a) if a.present?}
     respond_to do |format|
       if @collection.update(collection_params)
+		@showrooms.each{|a| a.collections << @collection if !(a.collections.include?(@collection))}
         format.html { redirect_to @collection, notice: 'Коллекция успешно обновлена.' }
         format.json { render :show, status: :ok, location: @collection }
       else
@@ -53,6 +59,7 @@ class CollectionsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /collections/1
   # DELETE /collections/1.json
@@ -72,7 +79,7 @@ class CollectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def collection_params
-      params.require(:collection).permit(:colname, :shdescription, :begindate, :enddate, :showroom_ids => [],
+      params.require(:collection).permit(:colname, :shdescription, :begindate, :enddate,
       showrooms_attributes: [:id, :roomname, :_destroy])
     end
 end

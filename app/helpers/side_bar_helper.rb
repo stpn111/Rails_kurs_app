@@ -7,6 +7,7 @@ module SideBarHelper
       :controller => :welcome, 
       :action => :index
     }
+    if is_admin? || is_operator?
     result << {
       :name => 'Администрирование',
       :icon => 'users',
@@ -22,7 +23,8 @@ module SideBarHelper
        :controller => :roles, :action => :index,
        :icon => 'align-center',
        :class => 'long'},
-    ]} 
+    ]}
+    end 
     result << {
       :name => 'Данные по музею',
       :icon => 'picture-o',

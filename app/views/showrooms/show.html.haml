@@ -1,8 +1,6 @@
 =breadcrumb_tag do
   %li
-    = link_to 'Список залов', showrooms_path
-  %li
-    = link_to(@showroom.roomname, @showrooms)  
+    = link_to 'Список залов', showrooms_path 
   %li.active
     = t('headers.showrooms.show')
 

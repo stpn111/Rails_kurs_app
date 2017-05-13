@@ -11,6 +11,7 @@ end
 r1, r2 = Role.create_main_roles
 ru1 = RoleUser.create(role: r1, user: u1)
 ru2 = RoleUser.create(role: r2, user: u2)
+ru2 = Role.create(name: 'inspector', info: 'Проверяющий', full_info: 'Проверяющий из министерства')
 Collection.create(colname: 'Статуэтки', shdescription: 'Описание для статуэток', begindate: DateTime.parse("05/04/2017", "%m/%d/%Y %H:%M"), enddate: DateTime.parse("01/06/2017", "%m/%d/%Y %H:%M"))
 Collection.create(colname: 'Медали', shdescription: 'Описание для древних медалей', begindate: DateTime.parse("25/04/2017", "%m/%d/%Y %H:%M"), enddate: DateTime.parse("16/06/2017", "%m/%d/%Y %H:%M"))
 Showroom.create(roomname: "Зал древностей")
