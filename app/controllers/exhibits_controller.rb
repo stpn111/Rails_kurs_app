@@ -8,7 +8,15 @@ class ExhibitsController < ApplicationController
   def index
     @exhibits = Exhibit.all
   end
-
+  
+  def search
+    if params.has_key?('search')
+      @exhibits = Exhibit.search(params['search'])
+    else
+      @exhibits = []
+    end
+    params['search'] ||= {}
+  end
   # GET /exhibits/1
   # GET /exhibits/1.json
   def show
@@ -70,7 +78,6 @@ class ExhibitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     
-    #без долбаных showrooms_ids => [] SELECT РАБОТАТЬ НЕ БУДЕТ! НЕ ЗАБЫТЬ! http://stackoverflow.com/questions/27459269/rails-4-collection-select-multiple-nested-attributes-not-saving-properly
     def exhibit_params
       params.require(:exhibit).permit(:name, :sdescription, :insurance, :century, :height, :width, :length, :tempcontrol, :himiditycontrol, :peopleprotect, :collection_id)
     end

@@ -9,7 +9,10 @@
     - if is_admin? || is_operator?
       = link_to new_exhibit_path, class: 'btn btn-success' do
         = fa_icon :plus
-        = t('buttons.new.exhibit')   
+        = t('buttons.new.exhibit')  
+      = link_to search_exhibits_path, class: 'btn btn-default' do
+        = fa_icon :search
+        = t('buttons.search.exhibit')         
   %thead
     %tr
       %th= Exhibit.human_attribute_name(:name)

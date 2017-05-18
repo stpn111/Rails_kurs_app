@@ -27,6 +27,9 @@ ru:
       collection: Новая коллекция
       exhibit: Новый экспонат
       showroom: Новый зал
+    search:
+      exhibit: Поиск
+    exhibit_search: Найдено
   headers:
     users:
       edit: Редактирование пользователя
@@ -46,11 +49,13 @@ ru:
       index: Список экспонатов
       edit: Редактирование экспоната
       show: Просмотр информации об экспонате
+      search: Поиск экспонатов
     showrooms:
       new: Новый зал
       index: Список залов
       edit: Редактирование зала
       show: Просмотр информации о зале
+      
           
   views:
     pagination:

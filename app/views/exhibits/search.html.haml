@@ -1,0 +1,111 @@
+=breadcrumb_tag do
+  %li
+    = link_to 'Список экспонатов', exhibits_path
+  %li.active
+    = t('headers.exhibits.search')  
+= form_tag search_exhibits_path, method: :get do
+  .well
+    %h4= 'Поиск в экспонатах'
+    .row
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:name)
+          = text_field_tag 'search[name]', params['search']['name'],class: 'form-control'
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:sdescription)
+          = text_field_tag 'search[sdescription]', params['search']['sdescription'],class: 'form-control'   
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:insurance)
+          = number_field_tag 'search[insurance]', params['search']['insurance'],class: 'form-control'        
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:century)
+          = number_field_tag 'search[century]', params['search']['century'],class: 'form-control'      
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:height)
+          = number_field_tag 'search[height]', params['search']['height'],class: 'form-control' 
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:width)
+          = number_field_tag 'search[width]', params['search']['width'],class: 'form-control' 
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:length)
+          = number_field_tag 'search[length]', params['search']['length'],class: 'form-control'     
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:tempcontrol)
+          = check_box_tag 'search[tempcontrol]', nil,  nil
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:himiditycontrol)
+          = check_box_tag 'search[himiditycontrol]', nil,  nil    
+      .col-md-2
+        .form-group
+          = label_tag Exhibit.human_attribute_name(:peopleprotect)
+          = check_box_tag 'search[peopleprotect]', nil,  nil        
+    %h4= 'Поиск в коллекциях и залах' 
+    .row                                          
+      .col-md-2
+        .form-group
+          = label_tag Collection.human_attribute_name(:colname)
+          = select_tag 'search[colname]', options_for_select(Collection.all.map{|x| [x.colname]}.uniq), {include_blank: true, class: 'form-control'}   
+      .col-md-2
+        .form-group
+          = label_tag Collection.human_attribute_name(:shdescription)
+          = text_field_tag 'search[shdescription]', params['search']['shdescription'], class: 'form-control' 
+      .col-md-2
+        .form-group
+          = label_tag Collection.human_attribute_name(:begindate)
+          .input-group.date.datepicker
+            = text_field_tag 'search[begindate]', params['search']['begindate'], class: 'form-control'  
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
+      .col-md-2
+        .form-group
+          = label_tag Collection.human_attribute_name(:enddate)
+          .input-group.date.datepicker
+            = text_field_tag 'search[enddate]', params['search']['enddate'], class: 'form-control'  
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar                                           
+      .col-md-2
+        .form-group
+          = label_tag Showroom.human_attribute_name(:roomname)
+          = select_tag 'search[roomname]', options_for_select(Showroom.all.map{|x| [x.roomname]}.uniq),{include_blank: true, class: 'form-control'}                                                 
+  .actions
+    = submit_tag t('buttons.search.exhibit'), class: 'bnt btn-primary'
+.page-header
+  %h4= t('buttons.exhibit_search') + ": " + @exhibits.size.to_s
+- if @exhibits.size > 0
+  %table.table.table-hover.table-striped
+    %thead
+      %tr
+        %th= Exhibit.human_attribute_name(:name)
+        %th= Exhibit.human_attribute_name(:sdescription)
+        %th= Exhibit.human_attribute_name(:insurance)
+        %th= Exhibit.human_attribute_name(:century)
+        %th= Exhibit.human_attribute_name(:height)
+        %th= Exhibit.human_attribute_name(:width)
+        %th= Exhibit.human_attribute_name(:length)   
+        %th= Exhibit.human_attribute_name(:tempcontrol)
+        %th= Exhibit.human_attribute_name(:himiditycontrol)
+        %th= Exhibit.human_attribute_name(:peopleprotect)
+        %th= Exhibit.human_attribute_name(:collection)               
+      %tbody
+        - @exhibits.each do |exhibit|  
+          %tr
+            %td{"data-label" => "Название"}= exhibit.name
+            %td{"data-label" => "Описание"}= exhibit.sdescription
+            %td{"data-label" => "Страховая стоимость"}= exhibit.insurance
+            %td{"data-label" => "Век"}= exhibit.century
+            %td{"data-label" => "Высота"}= exhibit.height
+            %td{"data-label" => "Ширина"}= exhibit.width
+            %td{"data-label" => "Длина"}= exhibit.length
+            %td{"data-label" => "Требуется темп. режим?"}= exhibit.tempcontrol ? "Да" : "Нет"
+            %td{"data-label" => "Требуется собл. влажность?"}= exhibit.himiditycontrol ? "Да" : "Нет"
+            %td{"data-label" => "Защищать от людей?"}= exhibit.peopleprotect ? "Да" : "Нет"
+            %td{"data-label" => "Название коллекции"}= exhibit.collection.colname          
+              
